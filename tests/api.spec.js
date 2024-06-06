@@ -59,7 +59,11 @@ const testVectors = [
   ...readmeVectors
 ].map(([data, result]) => [_toUint8Array(data), result]);
 
-const invalidEncodeVectors = [
+// invalid encode input types
+const invalidEncodeTypes = [
+  [undefined, TypeError],
+  [null, TypeError],
+  ['QR', TypeError],
   [0, TypeError],
   [123456, TypeError],
   [true, TypeError],
@@ -67,6 +71,10 @@ const invalidEncodeVectors = [
   [[], TypeError],
   [[0, 1, 2], TypeError],
   [{}, TypeError]
+];
+
+const invalidEncodeVectors = [
+  ...invalidEncodeTypes
 ];
 
 // tables from index file, keep in sync
@@ -78,6 +86,20 @@ decodeTable.fill(0xFF);
 for(let i = 0; i < encodeTable.length; ++i) {
   decodeTable[encodeTable.charCodeAt(i)] = i;
 }
+
+// invalid decode input types
+const invalidDecodeTypes = [
+  [undefined, TypeError],
+  [null, TypeError],
+  [new Uint8Array([81, 82]), TypeError],
+  [0, TypeError],
+  [123456, TypeError],
+  [true, TypeError],
+  [3.14159, TypeError],
+  [[], TypeError],
+  [[0, 1, 2], TypeError],
+  [{}, TypeError]
+];
 
 // invalid alphabet chars
 const invalidChars = [...[...decodeTable].entries()]
@@ -111,6 +133,7 @@ const invaildMisc = [
 ];
 
 const invalidDecodeVectors = [
+  ...invalidDecodeTypes,
   ...invalidChars,
   ...invalidLengths,
   ...invalidSizes,
