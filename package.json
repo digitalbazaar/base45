@@ -1,6 +1,6 @@
 {
   "name": "@digitalbazaar/base45",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "Encoder/decoder for RFC 9285 \"The Base45 Data Encoding\".",
   "homepage": "https://github.com/digitalbazaar/base45",
   "author": {
