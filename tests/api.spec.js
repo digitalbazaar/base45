@@ -31,6 +31,7 @@ const specVectors = [
 
 // misc tests
 const miscVectors = [
+  // basic inputs
   [[], ''],
   ['', ''],
   ['a', '72'],
@@ -38,6 +39,12 @@ const miscVectors = [
   ['abc', '0EC92'],
   [[0x00], '00'],
   [[0x00, 0x00], '000'],
+  // tests from https://github.com/multiformats/js-multiformats
+  ['Decentralize everything!!', '4T8KPCG/DVKEXVDDLFD44O/EALEAWEZEDV1DX0'],
+  ['yes mani !', 'RFF.OEB$D5/DZ24'],
+  ['hello world', '+8D VD82EK4F.KEA2'],
+  ['\x00yes mani !', 'V206$CL44CEC2DDX0'],
+  ['\x00\x00yes mani !', '000RFF.OEB$D5/DZ24'],
 ];
 
 // tests from README.md
