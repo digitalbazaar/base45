@@ -96,11 +96,11 @@ const invalidSizes = [
 // misc invalid
 const invaildMisc = [
   // every char decode position checks validity
-  ['\xff00', RangeError],
-  ['0\xff0', RangeError],
-  ['00\xff', RangeError],
-  ['000\xff0', RangeError],
-  ['0000\xff', RangeError],
+  ['x00', RangeError],
+  ['0x0', RangeError],
+  ['00x', RangeError],
+  ['000x0', RangeError],
+  ['0000x', RangeError],
 ];
 
 const invalidDecodeVectors = [
